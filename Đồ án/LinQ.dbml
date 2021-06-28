@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FlightManagement_Demo_2" Class="LinQDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-2K9B653;Initial Catalog=FlightManagement_Demo_2;Integrated Security=True" SettingsObjectName="Đồ_án.Properties.Settings" SettingsPropertyName="FlightManagement_Demo_2ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Flight" Member="Flights">
+    <Type Name="Flights">
+      <Column Name="ID_FLIGHT" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DE_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AR_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DE_AIRPORT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AR_AIRPORT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="EMPTY_SEAT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BOOKED_SEAT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Flight_Price" Member="Prices" ThisKey="ID_FLIGHT" OtherKey="ID_Flight" Type="Prices" />
+      <Association Name="Flight_Ticket" Member="Tickets" ThisKey="ID_FLIGHT" OtherKey="ID_FLIGHT" Type="Tickets" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Price" Member="Prices">
+    <Type Name="Prices">
+      <Column Name="ID_Flight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="price_Bussiness" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="price_Economy" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="price_First" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Flight_Price" Member="Flights" ThisKey="ID_Flight" OtherKey="ID_FLIGHT" Type="Flights" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Receipt" Member="Receipts">
+    <Type Name="Receipts">
+      <Column Name="ID_HoaDon" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="so_luong_ve_mua" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="tong_so_tien" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Receipt_Ticket" Member="Tickets" ThisKey="ID_HoaDon" OtherKey="ID_Receipt" Type="Tickets" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ticket" Member="Tickets">
+    <Type Name="Tickets">
+      <Column Name="ID_TICKET" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PRICE_TICKET" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DATETIME_TICKET" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CLASS_TICKET" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SEAT_TICKET" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ID_Customer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_FLIGHT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_Receipt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Flight_Ticket" Member="Flights" ThisKey="ID_FLIGHT" OtherKey="ID_FLIGHT" Type="Flights" IsForeignKey="true" />
+      <Association Name="Receipt_Ticket" Member="Receipts" ThisKey="ID_Receipt" OtherKey="ID_HoaDon" Type="Receipts" IsForeignKey="true" />
+      <Association Name="User_Ticket" Member="Users" ThisKey="ID_Customer" OtherKey="ID_User" Type="Users" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="Users">
+      <Column Name="ID_User" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="CMND" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="userName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="pass" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="permission" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="User_Ticket" Member="Tickets" ThisKey="ID_User" OtherKey="ID_Customer" Type="Tickets" />
+    </Type>
+  </Table>
+</Database>

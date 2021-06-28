@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12, 8.5" name="LinQ">
+  <DataContextMoniker Name="/LinQDataContext" />
+  <nestedChildShapes>
+    <classShape Id="da0a0472-e717-450c-bc0c-cc738a02872e" absoluteBounds="7.25, 1.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/LinQDataContext/Flights" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7b46c0b7-50bd-4d26-b499-02c5c750307b" absoluteBounds="7.265, 2.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5eecd8d1-39d1-4293-a584-c3f132c286aa" absoluteBounds="4, 1.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LinQDataContext/Prices" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1af3a0b4-0e06-4caa-bd50-2a2fbe0838d4" absoluteBounds="4.015, 2.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.25 : 2.66429768880208); (6 : 2.66429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinQDataContext/Flights/Flight_Price" />
+      <nodes>
+        <classShapeMoniker Id="da0a0472-e717-450c-bc0c-cc738a02872e" />
+        <classShapeMoniker Id="5eecd8d1-39d1-4293-a584-c3f132c286aa" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0e05b287-595c-45ee-8fb3-6aceb2469b53" absoluteBounds="9.75, 6.25, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/LinQDataContext/Receipts" />
+      <nestedChildShapes>
+        <elementListCompartment Id="046f6fd1-5235-4ca0-9f8b-96077bde4fb9" absoluteBounds="9.765, 6.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b1b40ae5-c9a9-4768-a5aa-6e2e7587f890" absoluteBounds="7.125, 4.5, 2, 2.347801106770834">
+      <DataClassMoniker Name="/LinQDataContext/Tickets" />
+      <nestedChildShapes>
+        <elementListCompartment Id="23210bcd-54e7-41b7-8e41-9b2c90828d62" absoluteBounds="7.1400000000000006, 4.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.1875 : 4.03049967447917); (8.1875 : 4.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinQDataContext/Flights/Flight_Ticket" />
+      <nodes>
+        <classShapeMoniker Id="da0a0472-e717-450c-bc0c-cc738a02872e" />
+        <classShapeMoniker Id="b1b40ae5-c9a9-4768-a5aa-6e2e7587f890" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.75 : 6.54890055338542); (9.125 : 6.54890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinQDataContext/Receipts/Receipt_Ticket" />
+      <nodes>
+        <classShapeMoniker Id="0e05b287-595c-45ee-8fb3-6aceb2469b53" />
+        <classShapeMoniker Id="b1b40ae5-c9a9-4768-a5aa-6e2e7587f890" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ef10d524-51c1-4d8e-ad3e-aaea07844366" absoluteBounds="4.75, 4.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/LinQDataContext/Users" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f7b95b1d-f95d-4e0f-8d09-2047c6ae69cf" absoluteBounds="4.765, 5.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.75 : 5.79890055338542); (7.125 : 5.79890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinQDataContext/Users/User_Ticket" />
+      <nodes>
+        <classShapeMoniker Id="ef10d524-51c1-4d8e-ad3e-aaea07844366" />
+        <classShapeMoniker Id="b1b40ae5-c9a9-4768-a5aa-6e2e7587f890" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
